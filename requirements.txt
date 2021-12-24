@@ -1,0 +1,4 @@
+genanki
+tqdm
+python-dotenv
+promptlib
