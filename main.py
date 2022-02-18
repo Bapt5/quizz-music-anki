@@ -145,11 +145,15 @@ files = []
 
 for i, music in enumerate(music_names[playlist]):
     # enleve les dates apres un –
-    regex = r'(?P<date>\– \d{4} *)'
+    regex = r"(?P<date>\– \d{4} *)"
     music = re.sub(regex, '', music, 0)
     # enleve les infos entre parentheses
-    regex = r"(?P<parenthese>\(.*\))"
+    regex = r"(?P<parenthese>\([^\)]*\))"
     music = re.sub(regex, '', music, 0)
+    # enleve les espaces inutiles
+    regex = r"(?P<space> {2,})"
+    music = re.sub(regex, ' ', music, 0)
+
     # association des fichiers avec les titres
     file = get_close_matches(music, music_files, n=1, cutoff=0)[0]
     music_files.remove(file)
