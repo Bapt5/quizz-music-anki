@@ -1,4 +1,6 @@
 git+https://github.com/Bapt5/genanki
+requests
+bs4
 tqdm
 python-dotenv
 promptlib

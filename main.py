@@ -55,7 +55,7 @@ for link in soup.findAll('a', href=lambda href: href and '.zip' in href):
 
 # choix de la partie du quizz si besoin
 if len(links) > 1:
-    choices = soup.findAll('p', text=re.compile(r'^\d* à \d*.*$'))
+    choices = soup.findAll('p', string=re.compile(r'^\d* à \d*.*$'))
     for i, choice in enumerate(choices):
         print(i, '=>', choice.text)
 
